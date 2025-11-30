@@ -1,6 +1,6 @@
 # tests/test_calculator.py
 import pytest
-from src.calculator import add, divide
+from src.calculator import add, divide, subtract, multiply
 
 def test_add():
     """
@@ -40,3 +40,12 @@ def test_divide_by_zero():
     print("Chạy test_divide_by_zero")
     with pytest.raises(ValueError, match="Không thể chia cho 0"):
         divide(10, 0)
+
+def test_add_tring():
+    """Kiểm tra việc cộng chuỗi với chuỗi khác."""
+    print("Chạy test_add_tring")    
+    assert add("Hello, ", "World!") == "Hello, World!"
+    assert add("","Test") == "Test"
+    assert add("Py", "test") == "Pytest"
+    assert add("123", "456") == "123456"
+    assert add("!@#", "$%^") == "!@#$%^"
